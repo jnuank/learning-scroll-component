@@ -13,7 +13,6 @@ type Items = {
 
 function App() {
 
-  const [flag, setFlag] = useState(false);
   const [items, setItems] = useState<Item[]>([])
 
   function callback() {
@@ -34,7 +33,7 @@ function App() {
   }
 
   async function fether(): Promise<Items> {
-    return executeGet('http://localhost:8081/lists')
+    return executeGet('http://localhost:8082/lists')
   }
 
   async function handleClick() {
@@ -45,11 +44,6 @@ function App() {
   }
 
   async function updateDate(res: Items) {
-    // items.map(item => console.log('item:' + item))
-    // const newList = items.concat(res.lists)
-    // newList.map(item => console.log('newList'+ item))
-    // setItems(newList)
-
     setItems((prev) => prev.concat(res.lists))
   }
 
