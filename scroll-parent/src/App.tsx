@@ -16,6 +16,7 @@ function App() {
 
   const [items, setItems] = useState<Item[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [fetchCount, setFetchCount] = useState<number>(0)
 
   function callback() {
     console.log('ボトムにいます')
@@ -43,6 +44,7 @@ function App() {
     const res = await fetcher()
     setItems((prev) => prev.concat(res.lists))
     setIsLoading(false)
+    setFetchCount((prev) => prev + 1)
   }
 
   return (
@@ -50,6 +52,7 @@ function App() {
       <button onClick={handleClick}>
         ぼたん
       </button>
+        count: {fetchCount}
       <my-list>
         {items.map(item => {
           return <Item itemName={item.name}></Item>;
