@@ -15,6 +15,7 @@ type Items = {
 function App() {
 
   const [items, setItems] = useState<Item[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   function callback() {
     console.log('ボトムにいます')
@@ -33,19 +34,15 @@ function App() {
     return response.json()
   }
 
-  async function fether(): Promise<Items> {
+  async function fetcher(): Promise<Items> {
     return executeGet('http://localhost:8082/lists')
   }
 
   async function handleClick() {
-    const res = await fether()
-    // res.lists.map(item => console.log(item))
-
-    updateDate(res)
-  }
-
-  async function updateDate(res: Items) {
+    setIsLoading(true)
+    const res = await fetcher()
     setItems((prev) => prev.concat(res.lists))
+    setIsLoading(false)
   }
 
   return (
@@ -57,6 +54,8 @@ function App() {
         {items.map(item => {
           return <Item itemName={item.name}></Item>;
         })}
+        {/* { isLoading &&  <div slot='item'>ローディング中</div>} */}
+        { isLoading &&  <div slot='item' className="loader">Loading...</div>} 
       </my-list>
     </>
   )

@@ -1,0 +1,10 @@
+.item-container {
+    background-color: white;
+    border-radius: 1px;
+    border: 1px solid #ddd;
+}
+
+.item-container:hover {
+    border: 1px solid #646cff;
+    background-color: gray;
+}
