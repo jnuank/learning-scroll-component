@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/lists"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "lists": [
+        {
+          "id": 1,
+          "name": "List 1"
+        },
+        {
+          "id": 2,
+          "name": "List 2"
+        },
+        {
+          "id": 3,
+          "name": "List 3"
+        }
+      ]
+    },
+    "headers": {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Access-Control-Allow-Headers": "*"
+    }
+  }
+}

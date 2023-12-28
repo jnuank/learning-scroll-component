@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: wiremock
+build:
+  local:
+    push: false
+    useBuildkit: true
+  # helm:
+  #   releases:
+  #   - name: wiremock
+  #     chartPath: environments/helm
+deploy:
+  helm:
+    releases:
+    - name: wiremock
+      chartPath: ./helm

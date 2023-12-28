@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wiremock
+  name: wiremock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiremock
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: wiremock
+    spec:
+      containers:
+      - image: wiremock/wiremock:3.3.1-alpine
+        imagePullPolicy: IfNotPresent
+        name: wiremock
+        resources: {}
+status: {}

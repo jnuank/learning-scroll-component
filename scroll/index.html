@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + Lit + TS</title>
+  <link rel="stylesheet" href="./src/index.css" />
+  <script type="module" src="/src/components/list.ts"></script>
+  <script>
+    // const myList = document.querySelector('.my-list');
+    window.addEventListener('add-item', function(event) {
+      console.log('aaaaaaa');
+    });
+    window.addEventListener('scroll-bottom', function(event) {
+      console.log('したにきたよー');
+    });
+  </script>
+</head>
+
+<body>
+  <!-- <my-elements>
+      <h1>Vite + Lit</h1>
+      <h2>テスト</h2>
+    </my-element> -->
+  <my-list class="lists">
+    <li slot="item">Item 7</li>
+    <li slot="item">Item 2</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+    <li slot="item">Item 10</li>
+  </my-list>
+</body>
+
+</html>
