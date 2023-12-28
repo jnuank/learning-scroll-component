@@ -1,6 +1,7 @@
 import './App.css'
 import './bundle.js'
 import { useEffect, useState } from 'react'
+import { Item } from './components/Item.js';
 
 type Item = {
   id: string;
@@ -53,7 +54,9 @@ function App() {
         ぼたん
       </button>
       <my-list>
-        {items.map(item => <li slot='item'>{item.name}</li>)}
+        {items.map(item => {
+          return <Item itemName={item.name}></Item>;
+        })}
       </my-list>
     </>
   )
